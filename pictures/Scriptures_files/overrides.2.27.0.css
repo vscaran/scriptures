@@ -1,0 +1,512 @@
+:root {
+    --customGrey1: #E6E6E6;
+    --customGrey2: #BBBBBB;
+    --customGrey3: #A2AAAD;
+    --customGrey4: #97999B;
+    --customGrey5: #53565A;
+    --footerGrey: #F1F1F3;
+
+    --sans: "Ensign:Sans", Arial, "noto sans", sans-serif;
+    --serif: "Ensign:Serif", "Georgia", "Times New Roman", serif;
+    --monospace: "Courier New", Courier, monospace;
+
+    --fontSize10: 0.625rem;
+    --fontSize12: 0.75rem;
+    --fontSize22: 1.375rem;
+    --fontSize26: 1.625rem;
+    --fontSize30: 1.875rem;
+    --fontSize36: 2.25rem;
+    --fontSize52: 3.25rem;
+    --fontSize54: 3.375rem;
+
+    --spacing10: 0.625rem;
+    --spacing20: 1.25rem;
+    --spacing40: 2.5rem;
+    --spacing60: 3.75rem;
+
+    @custom-media --mq-50-only (min-width: 0em) and (max-width: 24.999em);
+    @custom-media --mq-reader (min-width: 77.5em);
+    @custom-media --mq-mobile (min-width: 46em);
+
+    @custom-media --xs-min (min-width: 320px);
+    @custom-media --xs-max (max-width: 319px);
+    @custom-media --xs-only (min-width: 320px) and (max-width: 499px);
+
+    @custom-media --s-min (min-width: 500px);
+    @custom-media --s-max (max-width: 499px);
+    @custom-media --s-only (min-width: 500) and (max-width: 639.999);
+
+    @custom-media --m-min (min-width: 640px);
+    @custom-media --m-max (max-width: 639px);
+    @custom-media --m-only (min-width: 640) and (max-width: 899.999);
+
+    @custom-media --l-min (min-width: 900px);
+    @custom-media --l-max (max-width: 899px);
+    @custom-media --l-only (min-width: 900px) and (max-width: 1199px);
+
+    @custom-media --xl-min (min-width: 1200px);
+    @custom-media --xl-max (max-width: 1199px);
+    @custom-media --xl-only (min-width: 1200px) and (max-width: 1499px);
+
+    @custom-media --xxl-min (min-width: 1500px);
+    @custom-media --xxl-max (max-width: 1499px);
+
+    --h1-sans: normal normal bold var(--fontSize54)/var(--lineHeightTight) var(--sans);
+    --h2-sans: normal normal 100 var(--fontSize26)/var(--lineHeightTight) var(--sans);
+    --h3-sans: normal normal bold var(--fontSize16)/var(--lineHeightTight) var(--sans);
+    --h5-sans: normal normal bold var(--fontSize18)/var(--lineHeightTight) var(--sans);
+
+    --h1-serif: normal normal normal var(--fontSize54)/var(--lineHeightTight) var(--serif);
+    --h1-serif-informal: italic normal bold var(--fontSize52)/var(--lineHeightTight) var(--serif);
+    --h4-serif: normal normal normal var(--fontSize18)/var(--lineHeightTight) var(--serif);
+    --h6-serif: italic normal normal var(--fontSize18)/var(--lineHeightTight) var(--serif);
+}
+
+/*  =============================================  */
+
+/*  ==============  GLOBAL STYLES  ==============  */
+
+/*  =============================================  */
+
+html {
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    margin: 0;
+}
+
+td, th {
+    padding-right: 1em;
+    padding-bottom: .62em;
+}
+
+figure {
+    margin: 0;
+}
+
+article[data-aid-version] .page-break {
+    height: 0;
+    pointer-events: none
+}
+
+article[data-aid-version] .page-break::after {
+        z-index: unset;
+        transform-origin: bottom right;
+        transform: translate(8px, -2.3em) rotate(-90deg);
+        line-height: 1
+    }
+
+@media (min-width: 46rem) {
+
+article[data-aid-version] .page-break::after {
+            transform: translateY(-1.35em)
+    }
+        }
+
+[dir="ltr"] article[data-aid-version] .page-break::after {
+            right: 12px
+    }
+
+@media (min-width: 46rem) {
+
+[dir="ltr"] article[data-aid-version] .page-break::after {
+                right: 22px
+    }
+            }
+
+[dir="rtl"] article[data-aid-version] .page-break::after {
+            left: 12px;
+            right: auto;
+            right: initial
+    }
+
+@media (min-width: 46rem) {
+
+[dir="rtl"] article[data-aid-version] .page-break::after {
+                left: 22px
+    }
+            }
+
+p article[data-aid-version] .page-break::after {
+            z-index: -1
+    }
+
+article[data-aid-version] .active-item::before, article[data-aid-version] .bookmarkHighlight::before {
+        content: "";
+        height: calc(var(--height, 0) + 1rem);
+        position: absolute;
+        transform: translateY(-0.5rem)
+    }
+
+[dir="ltr"] article[data-aid-version] .active-item::before, [dir="ltr"] article[data-aid-version] .bookmarkHighlight::before {
+            border-left: 3px solid var(--accent, var(--blue20));
+            left: 1.25rem
+    }
+
+@media (min-width: 46em) {
+
+[dir="ltr"] article[data-aid-version] .active-item::before, [dir="ltr"] article[data-aid-version] .bookmarkHighlight::before {
+                left: 3.25rem
+    }
+            }
+
+[dir="rtl"] article[data-aid-version] .active-item::before, [dir="rtl"] article[data-aid-version] .bookmarkHighlight::before {
+            border-right: 3px solid var(--accent, var(--blue20));
+            right: 1.25rem
+    }
+
+@media (min-width: 46em) {
+
+[dir="rtl"] article[data-aid-version] .active-item::before, [dir="rtl"] article[data-aid-version] .bookmarkHighlight::before {
+                right: 3.25rem
+    }
+            }
+
+article[data-aid-version] .bookmarkHighlight::before{
+    border-color: var(--border-primary, var(--grey10));
+}
+
+@media print{
+    aside, figure {
+        page-break-inside: avoid;
+    }
+
+    [data-aid-version] figure.image,
+    [data-aid-version] .no-print,
+    [data-aid-version] img {
+        display: none;
+    }
+
+    [data-aid-version] figure.diagram {
+        display: block;
+    }
+
+    [data-aid-version] figure.diagram img {
+        display: inline-block;
+    }
+}
+
+/*  =============================================  */
+
+/*  ==============  HEADER STYLES  ==============  */
+
+/*  =============================================  */
+
+h1, body > header > .subtitle {
+    top: 0;
+}
+
+.title-number {
+    top: 7px;
+}
+
+h1 {
+    font-family: var(--serif);
+    position: unset;
+}
+
+h1 > .dominant {
+    font-size: var(--fontSize36);
+}
+
+/*  =============================================  */
+
+/*  =============  APP LEVEL STYLES  ============  */
+
+/*  =============================================  */
+
+.app {
+    min-height: 50vh;
+    margin-bottom: -100px;
+}
+
+#flexContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: inherit;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh
+
+    /* CSS specific to iOS devices - this may lose iOS support in the future. */
+    /* If it does, then the scrolling bug may come back for iOS               */
+}
+
+@supports (-webkit-touch-callout: none) {
+
+#flexContainer {
+        min-height: -webkit-fill-available
+}
+    }
+
+#flexContainer.force-scrollbar {
+        scrollbar-color: var(#929292) var(#F8F8F8);
+        scrollbar-width: 16px
+    }
+
+#flexContainer.force-scrollbar::-webkit-scrollbar {
+            width: 16px;
+        }
+
+#flexContainer.force-scrollbar::-webkit-scrollbar-thumb {
+            border: 2.5px solid transparent;
+            border-radius: 12px;
+            background-color: #929292;
+            background-clip: content-box
+        }
+
+#flexContainer.force-scrollbar::-webkit-scrollbar-thumb:hover {
+                background-color: #707070;
+            }
+
+#flexContainer.force-scrollbar::-webkit-scrollbar-track {
+            background-color: #F8F8F8;
+            border: 1px solid #E8E8E8;
+        }
+
+#app {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#app article[data-aid-version] div.body,
+#cross-link-overlay article[data-aid-version] div.body {
+    font-weight: 400;
+    padding-left: 0;
+    padding-right: 0;
+    color: var(--text-primary, var(--black))
+}
+
+#app article[data-aid-version] div.body a, #cross-link-overlay article[data-aid-version] div.body a {
+        color: var(--text-link, var(--info40));
+    }
+
+@media print {
+    #app article[data-aid-version] div.body,
+    #cross-link-overlay article[data-aid-version] div.body {
+        color: var(--black)
+    }
+
+        #app article[data-aid-version] div.body a, #cross-link-overlay article[data-aid-version] div.body a {
+            color: var(--info40);
+        }
+}
+
+#portalRoot {
+    z-index: 1400;
+    position: relative;
+}
+
+.platform-mask-blurred #portalRoot {
+    filter: blur(0);
+}
+
+.body-block {
+    margin: 0;
+}
+
+/*  =============================================  */
+
+/*  =============  PLATFORM STYLES  =============  */
+
+/*  =============================================  */
+
+/*  ==================  FOOTER  =================  */
+
+.LDSORGFooter {
+    z-index: 600;
+}
+
+/*  ==================  GENERAL  =================  */
+
+a.pf-popup__trigger {
+    color: white;
+}
+
+/*  ==============================================  */
+
+/*  ==============  SPECIFIC STYLES  =============  */
+
+/*  ==============================================  */
+
+/*  ============  MANUALS BLOCK QUOTES  ============*/
+
+[data-aid-version] blockquote > img {
+    float: left;
+    width: 86px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    padding: 0;
+    margin-left: 1.6em;
+}
+
+/*  =============  PREACH MY GOSPEL  =============  */
+
+article[data-aid-version][data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"] .body-block,
+article[data-aid-version][data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"] .resources,
+article[data-aid-version][data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"][data-uri $= "remember-this"] .body{
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+article[data-aid-version][data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"] .body > header h1,
+article[data-aid-version][data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"] .body > header .subtitle{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+article[data-aid-version][data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"]:not([data-uri $= "lesson-4-the-commandments"]):not([data-uri $= "lesson-5-laws-and-ordinances"]):not([data-uri $= "introduction-how-can-i-best-use-preach-my-gospel"]) .body-block > section:last-of-type{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+[data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"] .page-break:after{
+    right: -26px;
+}
+
+@media (min-width: 40rem){
+    [data-uri *= "/manual/preach-my-gospel-a-guide-to-missionary-service/"] .page-break:after{
+        right: -50px;
+    }
+}
+
+/*  =============  YOUTH CURRICULUM  =============  */
+
+article[data-aid-version][data-uri *= "/youth/learn/"][data-uri $= "/overview"] .body-block{
+    padding: 0;
+}
+
+/*  =============  _MANIFEST STYLES  =============  */
+
+article[data-aid-version][data-uri $= "_manifest"] li {
+        margin-bottom: var(--spacing8);
+    }
+
+article[data-aid-version][data-uri $= "_manifest"] header + ul, article[data-aid-version][data-uri $= "_manifest"] li ul {
+            padding-top: var(--spacing8);
+            padding-left: var(--spacing24);
+    }
+
+/*  =============  THEME OVERIDE STYLES  =============  */
+
+.global-template-mobile_lesson,
+.global-template-mobile_lesson .body-block table dt,
+.global-template-mobile_lesson .body-block table p,
+.global-template-mobile_lesson .body-block table ul,
+.global-template-mobile_lesson .body-block table ol,
+.global-template-mobile_lesson aside.annotation, 
+.global-template-mobile_lesson aside.annotation header .title, 
+.global-template-mobile_lesson aside.more-info, 
+.global-template-mobile_lesson aside.more-info header .title, 
+.global-template-mobile_lesson aside.sidebar, 
+.global-template-mobile_lesson aside.sidebar header .title,
+.global-template-mobile_lesson figcaption ol, 
+.global-template-mobile_lesson figcaption p,
+.global-template-mobile_lesson figcaption ul, 
+.global-template-mobile_lesson figure.for-teacher, 
+.global-template-mobile_lesson figure.for-teacher header .title, 
+.global-template-mobile_lesson figure.teaching-method, 
+.global-template-mobile_lesson figure.teaching-method header .title,
+.global-template-mobile_lesson table dt, 
+.global-template-mobile_lesson table ol,
+.global-template-mobile_lesson table p,
+.global-template-mobile_lesson table ul { 
+    color: var(--text-secondary, var(--grey40));
+}
+
+.global-template-mobile_lesson aside.annotation aside.quote, 
+.global-template-mobile_lesson aside.annotation blockquote, 
+.global-template-mobile_lesson aside.more-info aside.quote, 
+.global-template-mobile_lesson aside.more-info blockquote, 
+.global-template-mobile_lesson aside.sidebar aside.quote, 
+.global-template-mobile_lesson aside.sidebar blockquote, 
+.global-template-mobile_lesson figure.for-teacher aside.quote, 
+.global-template-mobile_lesson figure.for-teacher blockquote, 
+.global-template-mobile_lesson figure.teaching-method aside.quote, 
+.global-template-mobile_lesson figure.teaching-method blockquote, 
+.preach-my-gospel-a-guide-to-missionary-service .bullet li p, 
+.preach-my-gospel-a-guide-to-missionary-service .for-teacher>section>header>.title, 
+.preach-my-gospel-a-guide-to-missionary-service .no-marker li p,
+.preach-my-gospel-a-guide-to-missionary-service aside.quote p,
+.preach-my-gospel-a-guide-to-missionary-service aside.quote .citation-info>p,
+.preach-my-gospel-a-guide-to-missionary-service[data-uri$='how-do-i-use-time-wisely'] .decimal li p,
+.preach-my-gospel-a-guide-to-missionary-service:not([data-uri$='lesson-4-the-commandments']):not([data-uri$='lesson-5-laws-and-ordinances']):not([data-uri$='introduction-how-can-i-best-use-preach-my-gospel']) .body-block>section:last-of-type>header>h2 {
+    color: var(--text-primary, var(--text120));
+}
+
+.preach-my-gospel-a-guide-to-missionary-service .credit>p {
+    color: var(--text-secondary, #7D7D7D);
+}
+
+.proclamations h1,
+.proclamations header>.subtitle, 
+.proclamations figure .title,
+.proclamations .byline p, 
+.proclamations .epigraph {
+    color: var(--text-primary, #5B1400);
+}
+
+@media print {
+    .global-template-mobile_lesson,
+    .global-template-mobile_lesson .body-block table dt,
+    .global-template-mobile_lesson .body-block table p,
+    .global-template-mobile_lesson .body-block table ul,
+    .global-template-mobile_lesson .body-block table ol,
+    .global-template-mobile_lesson aside.annotation, 
+    .global-template-mobile_lesson aside.annotation header .title, 
+    .global-template-mobile_lesson aside.more-info, 
+    .global-template-mobile_lesson aside.more-info header .title, 
+    .global-template-mobile_lesson aside.sidebar, 
+    .global-template-mobile_lesson aside.sidebar header .title,
+    .global-template-mobile_lesson figcaption ol, 
+    .global-template-mobile_lesson figcaption p,
+    .global-template-mobile_lesson figcaption ul, 
+    .global-template-mobile_lesson figure.for-teacher, 
+    .global-template-mobile_lesson figure.for-teacher header .title, 
+    .global-template-mobile_lesson figure.teaching-method, 
+    .global-template-mobile_lesson figure.teaching-method header .title,
+    .global-template-mobile_lesson table dt, 
+    .global-template-mobile_lesson table ol,
+    .global-template-mobile_lesson table p,
+    .global-template-mobile_lesson table ul { 
+        color: var(--grey40);
+    }
+
+    .global-template-mobile_lesson aside.annotation aside.quote, 
+    .global-template-mobile_lesson aside.annotation blockquote, 
+    .global-template-mobile_lesson aside.more-info aside.quote, 
+    .global-template-mobile_lesson aside.more-info blockquote, 
+    .global-template-mobile_lesson aside.sidebar aside.quote, 
+    .global-template-mobile_lesson aside.sidebar blockquote, 
+    .global-template-mobile_lesson figure.for-teacher aside.quote, 
+    .global-template-mobile_lesson figure.for-teacher blockquote, 
+    .global-template-mobile_lesson figure.teaching-method aside.quote, 
+    .global-template-mobile_lesson figure.teaching-method blockquote, 
+    .preach-my-gospel-a-guide-to-missionary-service .bullet li p, 
+    .preach-my-gospel-a-guide-to-missionary-service .for-teacher>section>header>.title, 
+    .preach-my-gospel-a-guide-to-missionary-service .no-marker li p,
+    .preach-my-gospel-a-guide-to-missionary-service aside.quote p,
+    .preach-my-gospel-a-guide-to-missionary-service aside.quote .citation-info>p,
+    .preach-my-gospel-a-guide-to-missionary-service[data-uri$='how-do-i-use-time-wisely'] .decimal li p,
+    .preach-my-gospel-a-guide-to-missionary-service:not([data-uri$='lesson-4-the-commandments']):not([data-uri$='lesson-5-laws-and-ordinances']):not([data-uri$='introduction-how-can-i-best-use-preach-my-gospel']) .body-block>section:last-of-type>header>h2 {
+        color: var(--text120);
+    }
+
+    .preach-my-gospel-a-guide-to-missionary-service .credit>p {
+        color: #7D7D7D;
+    }
+
+    .proclamations h1,
+    .proclamations header>.subtitle, 
+    .proclamations figure .title,
+    .proclamations .byline p, 
+    .proclamations .epigraph {
+        color: #5B1400;
+    }
+}
+
+
+/*# sourceMappingURL=overrides.2.27.0.css.map*/
